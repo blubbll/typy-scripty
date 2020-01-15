@@ -7,13 +7,16 @@
   "description": "A simple Node app built on Express, instantly up and running.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "npm run build && node server.js",
+    "build": "webpack"
   },
   "dependencies": {
     "express": "^4.17.1",
     "webpack": "^4.41.4",
     "ts-loader": "^6.2.1",
-    "typescript": "^2.4.2"
+    "typescript": "^3.7.4",
+    "webpack-cli": "^3.3.10",
+    "node-sass": "^4.13.0"
   },
   "engines": {
     "node": "10.x"

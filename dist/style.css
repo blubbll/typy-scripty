@@ -1,0 +1,28 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+body {
+  background: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Helvetica Neue;
+  background: black; }
+
+main {
+  font-size: 2em;
+  color: #eee;
+  top: 45%;
+  font-family: consolas;
+  position: fixed;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2vmin solid rgba(0, 0, 0, 0.8);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; }
+
+canvas {
+  display: block; }

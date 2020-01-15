@@ -1,7 +1,7 @@
-function greeter(person: string) {
-    return "Hello, " + person;
+//generic hello function
+const hello = (target: string) => {
+    return `Hello, ${target}!`;
 }
 
-var user = "Jane User";
-
-document.body.innerHTML = greeter(user);
+//display out
+document.querySelectorAll("main")[0].innerHTML = hello("world");

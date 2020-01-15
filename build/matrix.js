@@ -25,7 +25,7 @@ matrix = matrix.split("");
 c.height = window.innerHeight;
 c.width = window.innerWidth;
 
-var font_size = 10;
+var font_size = 20;
 let columns = c.width / font_size; //number of columns for the rain
 //an array of drops - one per column
 var drops = [];
@@ -41,7 +41,8 @@ window.onresize = function() {
   for (var x = 0; x < columns; x++) drops[x] = 1;
 };
 
-const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+//https://www.paulirish.com/2009/random-hex-color-code-snippets/
+const color = `#${"000".replace(/0/g, f => "0369cf"[(Math.random() * 6) | 0])}`;
 
 document.querySelector("main").style.color = color;
 

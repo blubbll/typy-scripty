@@ -53,7 +53,7 @@ function draw() {
   ctx.fillRect(0, 0, c.width, c.height);
 
   ctx.fillStyle = color; //green text
-  ctx.font = font_size + "px arial";
+  ctx.font = font_size + "px consolas";
   //looping over drops
   for (var i = 0; i < drops.length; i++) {
     //a random chinese character to print

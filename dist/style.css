@@ -19,7 +19,7 @@ main {
   font-family: consolas;
   position: fixed;
   background: rgba(0, 0, 0, 0.75);
-  border: 0.75rem solid rgba(255, 255, 255, 0.25);
+  border: 0.75rem solid rgba(25, 25, 25, 0.25);
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;

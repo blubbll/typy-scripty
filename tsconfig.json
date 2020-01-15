@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "target": "es8",
+    "jsx": "react"
+  },
+  "include": [
+    "./build/**/*"
+  ]
+}

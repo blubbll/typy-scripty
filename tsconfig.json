@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-    "target": "es8",
-    "jsx": "react"
+    "target": "es2017",
+    "jsx": "react",
+    "module": "commonjs"
   },
-  "include": [
-    "./build/**/*"
-  ]
+  "include": ["./build/**/*"]
 }

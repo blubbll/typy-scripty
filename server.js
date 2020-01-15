@@ -1,22 +1,35 @@
-// server.js
-// where your node app starts
-
+("use strict");
 // init project
-const express = require("express");
-const app = express();
+const express = require("express"),
+  app = express(),
+  sass = require("node-sass"),
+  fs = require("fs");
 
-// we've started you off with Express,
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
-
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static("public"));
+//static dir
+app.use(express.static("dist"));
 
 // http://expressjs.com/en/starter/basic-routing.html
-app.get("/", function(request, response) {
-  response.sendFile(__dirname + "/views/index.html");
+app.get("/", (req, res) => {
+  res.sendFile(`${__dirname}/views/index.html`);
 });
 
-// listen for requests :)
-const listener = app.listen(process.env.PORT, function() {
-  console.log("Your app is listening on port " + listener.address().port);
+//SASS
+{
+  const c = {
+    in: `${__dirname}/build/style.sass.css`,
+    out: `${__dirname}/dist/style.css`
+  };
+  fs.writeFileSync(
+    c.out,
+    sass
+      .renderSync({
+        data: fs.readFileSync(c.in, "utf8")
+      })
+      .css.toString("utf8")
+  );
+}
+
+//listen
+app.listen(process.env.PORT, function() {
+  console.log(`Live on port ${this.address().port}`);
 });

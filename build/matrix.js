@@ -1,10 +1,20 @@
+//by https://codepen.io/wefiy/pen/WPpEwo
+
 // geting canvas by Boujjou Achraf
 var c = document.getElementById("c");
 var ctx = c.getContext("2d");
 
-//making the canvas full screen
-c.height = window.innerHeight;
-c.width = window.innerWidth;
+function delay(callback, ms) {
+  var timer = 0;
+  return function() {
+    var context = this,
+      args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function() {
+      callback.apply(context, args);
+    }, ms || 0);
+  };
+}
 
 //chinese characters - taken from the unicode charset
 var matrix =
@@ -12,13 +22,28 @@ var matrix =
 //converting the string into an array of single characters
 matrix = matrix.split("");
 
+c.height = window.innerHeight;
+c.width = window.innerWidth;
+
 var font_size = 10;
-var columns = c.width / font_size; //number of columns for the rain
+let columns = c.width / font_size; //number of columns for the rain
 //an array of drops - one per column
 var drops = [];
 //x below is the x coordinate
 //1 = y co-ordinate of the drop(same for every drop initially)
 for (var x = 0; x < columns; x++) drops[x] = 1;
+
+window.onresize = function() {
+  c.height = window.innerHeight;
+  c.width = window.innerWidth;
+  columns = c.width / font_size;
+  drops = [];
+  for (var x = 0; x < columns; x++) drops[x] = 1;
+};
+
+const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+document.querySelector("main").style.color = color;
 
 //drawing the characters
 function draw() {
@@ -27,7 +52,7 @@ function draw() {
   ctx.fillStyle = "rgba(0, 0, 0, 0.04)";
   ctx.fillRect(0, 0, c.width, c.height);
 
-  ctx.fillStyle = "#f4427d"; //green text
+  ctx.fillStyle = color; //green text
   ctx.font = font_size + "px arial";
   //looping over drops
   for (var i = 0; i < drops.length; i++) {
